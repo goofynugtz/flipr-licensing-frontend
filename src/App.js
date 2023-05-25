@@ -8,7 +8,7 @@ import Register from './pages/Auth/Register';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from "./pages/Auth/Login";
-//import Dashboard from './pages/user/Dashboard';
+import Dashboard from './pages/user/Dashboard';
 //import PrivateRoute from "./components/Layout/Routes/Private";
 import ForgotPassword from './pages/Auth/ForgotPassword';
 function App() {
@@ -16,14 +16,14 @@ function App() {
     <>
       <Routes>
         {/* <Route path="/" element={<HomePage />} />*/}
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
+        {/*<Route path="/" element={<Login />} />*/}
+        <Route path="/accounts/login" element={<Login />} />
         {/*<Route path="/dashboard" element={<PrivateRoute/>}>
            <Route path="" element={<Dashboard />} />
   </Route>*/}
-        
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/accounts/signup" element={<Register />} />
+        <Route path="/accounts/forgot-password" element={<ForgotPassword/>} />
         
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

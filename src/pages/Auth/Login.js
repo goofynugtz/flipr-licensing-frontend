@@ -4,20 +4,50 @@ import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import './../../styles/AuthStyles.css';
+//import { useAuth } from '../../context/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  //const [auth,setAuth]= useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('https://licensing.sr.flipr.ai/accounts/login/', {
+        email: email,
+        password: password,
+      });
+
+      if (response.status === 200) {
+        // Login successful
+        const responseData = response.data;
+        toast.success(responseData && responseData.message);
+        // setAuth({
+        //     ...auth,
+        //     user: responseData.user,
+        //     token: responseData.token,
+        // });
+        // localStorage.setItem('auth', JSON.stringify(responseData));
+        navigate(location.state || '/dashboard');
+      } else {
+        // Handle other response statuses if needed
+        toast.error(response.data && response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong');
+    }
+  };
 
   return (
     <div>
-      <Layout title="Register - Ecommerce App">
+      <Layout title="Register - Licensing App">
         <div className="form-container">
           <h1>LOGIN</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <input
                 type="email"
@@ -43,20 +73,22 @@ const Login = () => {
             </div>
 
             <div className="mb-3">
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
+            </div>
+
+            <div className="mb-3">
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={() => {
-                  navigate('/forgot-password');
+                  navigate('/accounts/forgot-password');
                 }}
               >
                 Forgot Password
               </button>
             </div>
-
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
           </form>
         </div>
       </Layout>

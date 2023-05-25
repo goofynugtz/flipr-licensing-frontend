@@ -3,21 +3,38 @@ import Layout from './../../components/Layout/Layout';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import './../../styles/AuthStyles.css';
+import axios from "axios";
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [organization, setOrganization] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const navigate = useNavigate();
 
-
+//form function
+const handleSubmit =async (e) =>{
+  e.preventDefault();
+  try{
+     const res= await axios.post('https://licensing.sr.flipr.ai/accounts/signup/',{name,email,password,organization,phone,address});
+     if(res && res.data.success){
+      toast.success(res.data && res.data.message);
+      navigate('accounts/login');
+     }else{
+      toast.error(res.data.message);
+     }
+  }catch(error){
+      console.log(error);
+      toast.error('Something went wrong');
+  }
+};
   return (
-    <Layout title="Register - Ecommerce App">
+    <Layout title="Register - Licensing Api">
       <div className="form-container">
-        <h1>REGISTER</h1>
-        <form>
+        <h1>SIGN UP</h1>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <input
               type="text"
@@ -57,12 +74,24 @@ const Register = () => {
           <div className="mb-3">
             <input
               type="text"
+              value={organization}
+              onChange={(e) => setOrganization(e.target.value)}
+              className="form-control"
+              id="exampleInputOrganization1"
+              placeholder="Enter Your Organization"
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <input
+              type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
               placeholder="Enter Your Phone"
-              required
+              //required
             />
           </div>
 
@@ -74,7 +103,7 @@ const Register = () => {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="Enter Your Address"
-              required
+              //required
             />
           </div>
 

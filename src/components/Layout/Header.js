@@ -35,12 +35,12 @@ const Header = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/register" className="nav-link">
-                  Register
+                <NavLink to="/accounts/signup" className="nav-link">
+                  Sign Up
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/" className="nav-link">
+                <NavLink to="/accounts/login" className="nav-link">
                   Login
                 </NavLink>
               </li>

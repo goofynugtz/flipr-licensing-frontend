@@ -25,14 +25,29 @@ const Login = () => {
       if (response.status === 200) {
         // Login successful
         const responseData = response.data;
-        toast.success('Logged out successfully',{duration:5000});
+        //toast.success('Logged out successfully',{duration:5000});
         // setAuth({
         //     ...auth,
         //     user: responseData.user,
         //     token: responseData.token,
         // });
         // localStorage.setItem('auth', JSON.stringify(responseData));
-        navigate(location.state || '/dashboard');
+        
+        toast.promise(
+          new Promise((resolve) => setTimeout(resolve, 4)), // Wait for 5 seconds
+          {
+            loading: 'Logging in...', // Display loading message
+            success: 'Logged in successfully', // Display success message
+            error: 'Failed to log in', // Display error message
+            duration: 4000, // Toast duration in milliseconds
+          }
+        ).then(() => {
+          navigate(location.state || '/dashboard', {
+            state: { email, password }, // Passes email and password as state to the dashboard
+          });
+        });
+      
+        
       } else {
         // Handle other response statuses if needed
         toast.error(response.data && response.data.message);
@@ -46,7 +61,7 @@ const Login = () => {
   return (
     <div>
       <Layout title="Register - Licensing App">
-        <div className="form-container">
+        <div className="form-container1">
           <h1>LOGIN</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">

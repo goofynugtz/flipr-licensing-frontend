@@ -12,6 +12,7 @@ import Dashboard from './pages/user/Dashboard';
 //import Verification from './pages/Auth/Verification';
 //import PrivateRoute from "./components/Layout/Routes/Private";
 import ForgotPassword from './pages/Auth/ForgotPassword';
+import IssueLicense from "./pages/user/IssueLicense";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/accounts/forgot-password" element={<ForgotPassword/>} />
         
         <Route path="/about" element={<About />} />
+        <Route path="/api/issue" element={<IssueLicense />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
         {/* <Route path="*" element={<Pagenotfound />} />*/}

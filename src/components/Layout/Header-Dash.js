@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //import {useAuth} from '../../context/auth';
 import toast from 'react-hot-toast';
 
@@ -16,12 +16,21 @@ export const Logo = () => (
   </a>
 );
 const HeaderDash = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  //const handleLogout = () => {
-  //  toast.success('Logged out successfully');
-  //  navigate('/accounts/login');
-  //};
+  const handleLogout = () => {
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 0)), // Wait for 5 seconds
+      {
+        loading: 'Logging out...', // Display loading message
+        success: 'Logged out successfully', // Display success message
+        error: 'Failed to log out', // Display error message
+        duration: 0, // Toast duration in milliseconds
+      }
+    ).then(() => {
+      navigate('/accounts/login');
+    });
+  };
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -42,7 +51,7 @@ const HeaderDash = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                {/*<NavLink to="/accounts/login" className="nav-link" onClick={handleLogout}>*/}<NavLink to="/accounts/login" className="nav-link">
+                <NavLink to="/accounts/login" className="nav-link" onClick={handleLogout}>{/*<NavLink to="/accounts/login" className="nav-link">*/}
                   Logout
                 </NavLink>
               </li>

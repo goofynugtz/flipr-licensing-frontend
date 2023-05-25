@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.foreground {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-left: 10rem;
+  /* background-color: darkkhaki; */
+}
+
+.background {
+  width: 60%;
+  z-index: -1;
+  min-height: 100vh;
+  background-color: bisque;
+}

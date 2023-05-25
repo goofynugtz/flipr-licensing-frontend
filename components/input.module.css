@@ -1,0 +1,36 @@
+.textbox {
+  position: relative;
+  width: 50rem;
+  margin: 1rem 0;
+}
+
+.input {
+	appearance: 0;
+  width: 100%;
+	border: 0;
+	height: 5rem;
+	padding: 0 2rem;
+	background-color: rgb(249 250 251);
+	border: 1px solid rgb(209 213 219);
+	color: var(--font-color-primary);
+	border-radius: var(--corner-radius);
+	margin-bottom: 1rem;
+	outline: none;
+	font-size: 1.8rem;
+	transition: all .1s;
+}
+
+.input:focus {
+	border: 2px solid rgba(63, 131, 248, 0.887);
+}
+
+.textbox span {
+	position: absolute;
+	left: 0;
+	margin: -.5rem 0 0 1rem;
+	padding: 0 1rem 0 1rem;
+	pointer-events: none;
+	font-size: 1.2rem;
+	background-color: white;
+}
+

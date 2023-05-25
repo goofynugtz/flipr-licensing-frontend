@@ -9,6 +9,7 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from "./pages/Auth/Login";
 import Dashboard from './pages/user/Dashboard';
+//import Verification from './pages/Auth/Verification';
 //import PrivateRoute from "./components/Layout/Routes/Private";
 import ForgotPassword from './pages/Auth/ForgotPassword';
 function App() {

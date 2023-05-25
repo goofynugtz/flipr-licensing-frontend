@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+//import { useNavigate } from 'react-router-dom';
 //import {useAuth} from '../../context/auth';
 import toast from 'react-hot-toast';
 
@@ -14,7 +15,13 @@ export const Logo = () => (
       
   </a>
 );
-const Header = () => {
+const HeaderDash = () => {
+  //const navigate = useNavigate();
+
+  //const handleLogout = () => {
+  //  toast.success('Logged out successfully');
+  //  navigate('/accounts/login');
+  //};
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -35,13 +42,8 @@ const Header = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/accounts/signup" className="nav-link">
-                  Sign Up
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/accounts/login" className="nav-link">
-                  Login
+                {/*<NavLink to="/accounts/login" className="nav-link" onClick={handleLogout}>*/}<NavLink to="/accounts/login" className="nav-link">
+                  Logout
                 </NavLink>
               </li>
             </ul>
@@ -51,4 +53,4 @@ const Header = () => {
     );
   };
 
-export default Header;
+export default HeaderDash;

@@ -14,27 +14,36 @@ const Register = () => {
   const [address, setAddress] = useState('');
   const navigate = useNavigate();
 
-//form function
-const handleSubmit =async (e) =>{
-  e.preventDefault();
-  try{
-     const res= await axios.post('https://licensing.sr.flipr.ai/accounts/signup/',{name,email,password,organization,phone,address});
-     if(res && res.data.success){
-      toast.success(res.data && res.data.message);
-      navigate('accounts/login');
-     }else{
-      toast.error(res.data.message);
-     }
-  }catch(error){
-      console.log(error);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post('https://licensing.sr.flipr.ai/accounts/signup/', {
+        name,
+        email,
+        password,
+        organization,
+        phone,
+        address,
+      });
+
+      if ((res.status === 208)) {
+        toast.error('Already exists');
+      } else if ((res.status === 201) || (res.status === 200) ){
+        toast.success('A verification email has been sent to you.After clicking on it, proceed to the login tab.');
+      }
+    } catch (error) {
+      //console.log(error);
       toast.error('Something went wrong');
-  }
-};
+    }
+  };
+
+
   return (
     <Layout title="Register - Licensing Api">
       <div className="form-container">
         <h1>SIGN UP</h1>
         <form onSubmit={handleSubmit}>
+          {/* Rest of the form inputs */}
           <div className="mb-3">
             <input
               type="text"

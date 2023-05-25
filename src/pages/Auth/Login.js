@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -24,7 +25,7 @@ const Login = () => {
       if (response.status === 200) {
         // Login successful
         const responseData = response.data;
-        toast.success(responseData && responseData.message);
+        toast.success('Logged out successfully',{duration:5000});
         // setAuth({
         //     ...auth,
         //     user: responseData.user,
@@ -38,7 +39,7 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error('Something went wrong');
+      toast.error('Incorrect email/password');
     }
   };
 

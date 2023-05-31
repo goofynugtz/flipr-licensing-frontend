@@ -4,14 +4,15 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  
+  --box-shadow-1: rgba(0, 0, 0, 0.027);
 
   --transparency-level-1: rgba(0, 0, 0, 0.1);
   --transparency-level-2: rgba(0, 0, 0, 0.2);
 	--transparency-level-3: rgba(0, 0, 0, 0.5);
 
-	--font-color-primary: rgb(0, 0, 0);
-	--font-color-primary-alt: rgb(255, 255, 255);
-	--font-color-secondary: rgba(0, 0, 0, .6);
+  --background-color: rgb(250, 250, 250);
+  --background-color-alt: rgb(220, 220, 220);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,9 @@
     --transparency-level-1: rgba(255, 255, 255, 0.05);
 	  --transparency-level-2: rgba(255, 255, 255, 0.2);
 	  --transparency-level-3: rgba(255, 255, 255, 0.5);
+
+    --background-color: rgb(0, 0, 0);
+    --background-color-alt: rgb(255, 255, 255);
   }
 }
 

@@ -1,0 +1,45 @@
+.visualization {
+	display: flex;
+	padding: 2rem;
+	flex-direction: column;
+}
+
+.title {
+	font-size: 3rem;
+	padding: 4rem 0 2rem 0;
+}
+
+.visualization .content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2rem;
+}
+
+.tables {
+	padding: 2rem;
+}
+
+.tables .content {
+	display: flex;
+	flex-direction: column;
+}
+
+.tables .content .row {
+	display: grid;
+	grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
+	gap: 1rem;
+	padding-bottom: 1rem;
+}
+
+.tables .content .row div {
+	padding: 1.5rem;
+	/* height: 20rem; */
+  background-color: white;
+  border-radius: var(--corner-radius);
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10rem .1rem var(--box-shadow-1);
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: var(--transparency-level-3);
+}

@@ -1,0 +1,25 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-right: 10rem;
+	font-size: 5rem;
+	font-family: SFMono;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+.links {
+	padding: 0;
+	text-decoration: none;
+	font-family: "SF Mono";
+	font-size: 5rem;
+}
+
+.helper {
+	font-size: 2rem;
+}

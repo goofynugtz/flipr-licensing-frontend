@@ -7,10 +7,12 @@ import { useState } from 'react'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isAuth, setIsAuth] = useState(defaultState.isAuth)
+  const [accessToken, setAccessToken] = useState<string | null>(defaultState.accessToken)
+  const [refreshToken, setRefreshToken] = useState<string | null>(defaultState.refreshToken)
 
   return (
     <>
-    <AuthContext.Provider value={{isAuth, setIsAuth}}>
+    <AuthContext.Provider value={{isAuth, setIsAuth, accessToken, setAccessToken, refreshToken, setRefreshToken}}>
       <Component {...pageProps}/>
     </AuthContext.Provider>
     {/* <Analytics /> */}
